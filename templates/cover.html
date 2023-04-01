@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html class="type--{{filetype}}" style="height: 100vh;">
+<html class="type--{{filetype}}" style="height: 100vh">
 	<head>
 		<meta charset="utf-8" />
 		<style type="text/css">
 			{{ style }}
 		</style>
 	</head>
-	<body style="height: 100vh;">
+	<body style="height: 100vh">
 		<div class="cover">
 			<div class="cover__content">
 				{% if author %}
 				<p class="cover__author">{{ author }}</p>
 				{% endif %}
 				<h1 class="cover__title">{{ title }}</h1>
-				<p class="cover__subtitle">
-					<time class="cover__date" datetime="{{ date }}"
+				<p class="cover__subtitle">Table of Contents</p>
+				{% if options.use_toc %} {% for item in items|slice(0, 5) %} {{
+				dump(item) }}
+				<h3 class="cover__date">{{ item.title }}</h3>
+				{% endfor %} {% endif %}
+				<!-- <time class="cover__date" datetime="{{ date }}"
 						>{{ date }}</time
-					>
-				</p>
+					> -->
 			</div>
 		</div>
 	</body>
