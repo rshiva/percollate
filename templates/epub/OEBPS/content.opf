@@ -33,10 +33,14 @@
 	</manifest>
 	
 	<spine toc="ncx">
+		{% if cover %}
+			<itemref idref="{{cover.id}}" linear="no" properties="cover-image" />
+		{% endif %}
 		{% for item in items %}
 			<itemref idref="{{item.id}}" />
 		{% endfor %}
 	</spine>
+
 
 	<guide>
 		<reference type="toc" title="{{ title | e }}" href="nav.xhtml" />
