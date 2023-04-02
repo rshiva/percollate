@@ -43,6 +43,9 @@
 
 
 	<guide>
+		{% if cover %}
+			<reference type="cover" title="Cover" href="{{cover.href}}" />
+		{% endif %}
 		<reference type="toc" title="{{ title | e }}" href="nav.xhtml" />
 	</guide>
 </package>
